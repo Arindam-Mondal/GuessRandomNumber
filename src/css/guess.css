@@ -1,0 +1,74 @@
+#myGuess {
+    height: 150px;
+    width: 100%;    
+    font-size: 100px;
+    text-align: center;
+}
+
+.guess-face {
+    height: 250px;
+    width: 150px;
+}
+
+.header {
+    height: 50px;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: #00563e;
+    color: white;
+    margin: 10px;
+}
+
+#checkGuess {
+    color: #fff;
+    background-color: #00563e;
+    border-color: #0b2b22;
+}
+
+#checkGuess:hover {
+    background-color: #0b2b22;
+}
+
+#guessResult {
+    margin: 15px 0px;
+    font-size: 2em;
+    color: #00563e;
+}
+
+.gameStatsHeader{
+    text-align: center;
+    color: white;
+    background-color: #00563e;
+    height: 41px;
+    font-size: 2em;
+    margin: 10px 0px;
+}
+
+.nav-link{
+    color: #00563e;
+}
+.nav-link:hover {
+    color: #00563e;
+}
+
+.tab-content {
+    margin-top: 10px;
+}
+
+.gamesCount {
+    height: 30px;
+    width: 30px;
+    background-color: #00563e;
+    color: white;
+    display: inline-block;
+    border: solid 2px #179e78;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.myBadge {
+    height: 70px;
+    width: 70px;
+}

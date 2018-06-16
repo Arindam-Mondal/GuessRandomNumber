@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Guess-A-Guess</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/guess.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-12 header">Guess-a-Guess</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 float-right">
+              <form onSubmit="App.checkMyGuess(); return false;">
+                <div class="form-group">
+                  <label for="guess" class="control-label"></label>
+                  <input type="number" class="form-control" id="myGuess" name="guess" align="right" placeholder="Guess">
+                </div>
+                <button type="submit" id="checkGuess" class="btn btn-primary">Check My Guess</button>
+                <div id="guessResult"></div>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <b>Hey!! Can you guess the NUMBER I am thinking of ?</b> 
+              <br />
+              <b>I am Thinkg something in between 0 to <span id="range"></span></b> 
+              <br />
+              <img src="images/GuessThinking.png" alt="Guess" class="guess-face"> 
+              <span id="net-message"></span> 
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <hr>
+          <div class="gameStatsHeader">
+          Game Statistics
+          </div>
+          
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" id="my-details-tab" data-toggle="tab" href="#myDetails">Your Game Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="chain-details-tab" data-toggle="tab" href="#ChainDetails">Network Details</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="myDetails">
+              <div class="row">
+                <div class="col-sm-6">
+                  <form>
+                    <div class="form-group row">
+                      <label for="accountAddress" class="col-sm-4 col-form-label">You Account Address</label>
+                      <div class="col-sm-8">
+                        <span id="accountAddress">No Address</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="accountBalance" class="col-sm-4 col-form-label">You Account Balance</label>
+                      <div class="col-sm-8">
+                        <span id="accountBalance">0</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="gamesPlayed" class="col-sm-4 col-form-label">Total No of games Played</label>
+                      <div class="col-sm-8">
+                        <span id="gamesPlayed">0</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="lastGuess" class="col-sm-4 col-form-label">Last Guess</label>
+                      <div class="col-sm-8">
+                        <span id="lastGuess">0</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="lastCorrectGuess" class="col-sm-4 col-form-label">Last Correct Guess</label>
+                      <div class="col-sm-8">
+                        <span id="lastCorrectGuess">0</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="correctGuessCount" class="col-sm-4 col-form-label">No of Correct Guesses</label>
+                      <div class="col-sm-8">
+                        <span id="correctGuessCount">0</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="wrongGuessCount" class="col-sm-4 col-form-label">No of Wrong Guesses</label>
+                      <div class="col-sm-8">
+                        <span id="wrongGuessCount">0</span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label for="badges">Your owned badges</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <span id="bronze"></span>
+                      <span id="silver"></span>
+                      <span id="gold"></span>
+                      <span id="platinum"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="tab-pane fade" id="ChainDetails">
+              <form>
+                <div class="form-group row">
+                  <label for="totalGames" class="col-sm-2 col-form-label">No Of games Played</label>
+                  <div class="col-sm-10">
+                    <span id="totalGames">0</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="lastPlayedBy" class="col-sm-2 col-form-label">Address of last Player</label>
+                  <div class="col-sm-10">
+                    <span id="lastPlayedBy">Game yet to be played</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="lastPlayerGuess" class="col-sm-2 col-form-label">Guess of Last Player</label>
+                  <div class="col-sm-10">
+                    <span id="lastPlayerGuess">Game yet to be played</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="gameResult" class="col-sm-2 col-form-label">Result of last game</label>
+                  <div class="col-sm-10">
+                    <span id="gameResult">Game yet to be played</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
